@@ -108,16 +108,30 @@
         class Juego {
           constructor(){
             this.inicializar()
+            this.generarSecuencia()
           }
 
           inicializar(){
             /* Manipula una clase previamente definida, en este caso manipula la clase hide*/
             btnEmpezar.classList.add('hide')
+            this.nivel = 1
+            this.colores = {
+              celeste,
+              violeta,
+              naranja,
+              verde
+            }
+          }
+
+          generarSecuencia(){
+            /*Primero crea un Array de 10 elementos, después inicializa todo en 0, posteriormente creamos un array(10) con los valores aleatorios, el n es el elemento del array creado al inicio*/
+            this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
           }
         }
 
         function empezarJuego() {
-          var juego = new Juego()
+          /*Se coloca está variable en windows*/
+          window.juego = new Juego()
           alert('El juego va a comenzar')
         }
       </script>
