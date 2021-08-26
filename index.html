@@ -113,6 +113,7 @@
           }
 
           inicializar(){
+            this.elegirColor = this.elegirColor.bind(this)
             /* Manipula una clase previamente definida, en este caso manipula la clase hide*/
             btnEmpezar.classList.add('hide')
             this.nivel = 7
@@ -150,10 +151,7 @@
           iluminarSecuencia(){
             for(let i = 0; i < this.nivel; i++){
               const color = this.transformarNumeroAColor(this.secuencia[i])
-              console.log(color)
-              setTimeout(() => {
-                console.log(color)
-                this.iluminarColor(color)}, 1000 * i)
+              setTimeout(() => this.iluminarColor(color), 1000 * i)
             }
           }
 
